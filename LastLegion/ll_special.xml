@@ -1,0 +1,669 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<!-- This file is provided under the Open Game License version 1.0a
+     For more information on OGL and related issues, see 
+       http://www.wizards.com/d20
+    
+     All producers of work derived from this definition are adviced to
+     familiarize themselves with the above license, and to take special
+     care in providing the definition of Product Identity (as specified
+     by the OGL) in their products.
+    
+     Copyright 2009 SmiteWorks Ltd.
+  -->
+
+<root version="2.0">
+  <windowclass name="ll_special">
+    <placement>
+      <size>
+        <width>252</width>
+        <height>611</height>
+      </size>
+    </placement>
+    <nodelete />
+    <sheetdata>
+	<genericcontrol name="kitframe1">
+        <bounds>12,8,480,290</bounds>
+        <frame>
+          <name>sheetgroup</name>
+        </frame>
+      </genericcontrol>
+      <StringControl>
+        <anchored>
+          <to>kitframe1</to>
+          <position>insidetopleft</position>
+          <offset>12,13</offset>
+        </anchored>
+        <font>sheetlabel</font>
+        <static>Vehicles</static>
+      </StringControl>
+	   <stringcontrol>
+        <anchored>
+          <to>kitframe1</to>
+          <position>insidetopright</position>
+          <offset>223,17</offset>
+          <size>
+            <width>30</width>
+          </size>
+        </anchored>
+        <center/>
+        <font>sheetlabelsmall</font>
+        <static>Dur.</static>
+      </stringcontrol>
+	   <stringcontrol>
+        <anchored>
+          <to>kitframe1</to>
+          <position>insidetopright</position>
+          <offset>188,17</offset>
+          <size>
+            <width>30</width>
+          </size>
+        </anchored>
+        <center/>
+        <font>sheetlabelsmall</font>
+        <static>Size</static>
+      </stringcontrol>
+	  <stringcontrol>
+        <anchored>
+          <to>kitframe1</to>
+          <position>insidetopright</position>
+          <offset>153,17</offset>
+          <size>
+            <width>30</width>
+          </size>
+        </anchored>
+        <center/>
+        <font>sheetlabelsmall</font>
+        <static>Struct</static>
+      </stringcontrol>
+      <stringcontrol>
+        <anchored>
+          <to>kitframe1</to>
+          <position>insidetopright</position>
+          <offset>118,17</offset>
+          <size>
+            <width>30</width>
+          </size>
+        </anchored>
+        <center/>
+        <font>sheetlabelsmall</font>
+        <static>Acc</static>
+      </stringcontrol>
+      <stringcontrol>
+        <anchored>
+          <to>kitframe1</to>
+          <position>insidetopright</position>
+          <offset>83,17</offset>
+          <size>
+            <width>30</width>
+          </size>
+        </anchored>
+        <center/>
+        <font>sheetlabelsmall</font>
+        <static>Safe</static>
+      </stringcontrol>
+      <stringcontrol>
+        <anchored>
+          <to>kitframe1</to>
+          <position>insidetopright</position>
+          <offset>48,17</offset>
+          <size>
+            <width>30</width>
+          </size>
+        </anchored>
+        <center/>
+        <font>sheetlabelsmall</font>
+        <static>Max</static>
+      </stringcontrol>
+      <stringcontrol>
+        <anchored>
+          <to>kitframe1</to>
+          <position>insidetopright</position>
+          <offset>13,17</offset>
+          <size>
+            <width>30</width>
+          </size>
+        </anchored>
+        <center/>
+        <font>sheetlabelsmall</font>
+        <static>Hand.</static>
+      </stringcontrol>
+      <windowlist name="vehicles">
+        <allowcreate/>
+        <allowdelete/>
+        <anchored>
+          <top>
+            <parent>kitframe1</parent>
+            <anchor>top</anchor>
+            <offset>26</offset>
+          </top>
+          <left>
+            <parent>kitframe1</parent>
+            <anchor>left</anchor>
+            <offset>13</offset>
+          </left>
+          <right>
+            <parent>kitframe1</parent>
+            <anchor>right</anchor>
+            <offset>-13</offset>
+          </right>
+          <size>
+            <height>260</height>
+          </size>
+        </anchored>
+        <class>charsheet_vehicleitem</class>
+        <datasource>.vehicles</datasource>
+        <script>
+          function onInit()
+            checkEmpty();
+          end
+          
+          function onListRearranged(changed)
+            if changed then
+              checkEmpty();
+            end
+          end
+          
+          function checkEmpty()
+            if #getWindows()==0 then
+              createWindow();
+            end
+          end
+        </script>
+      </windowlist>
+      <scrollercontrol>
+        <anchored>
+          <to>vehicles</to>
+          <position>insidebottomright</position>
+          <size>
+            <width>45</width>
+            <height>27</height>
+          </size>
+        </anchored>
+        <target>vehicles</target>
+        <button>
+          <normal>button_scroller</normal>
+          <pressed>button_scroller_down</pressed>
+        </button>
+      </scrollercontrol>
+      
+   
+	
+	
+      <!-- Disciplines -->
+       <genericcontrol name="kitframe">
+        <bounds>12,298,480,300</bounds>
+        <frame>
+          <name>sheetgroup</name>
+        </frame>
+      </genericcontrol>
+      <StringControl>
+        <anchored>
+          <to>kitframe</to>
+          <position>insidetopleft</position>
+          <offset>12,13</offset>
+        </anchored>
+        <font>sheetlabel</font>
+        <static>Vehicle Weapons</static>
+      </StringControl>
+	   <stringcontrol>
+        <anchored>
+          <to>kitframe</to>
+          <position>insidetopright</position>
+          <offset>223,17</offset>
+          <size>
+            <width>30</width>
+          </size>
+        </anchored>
+        <center/>
+        <font>sheetlabelsmall</font>
+        <static>Bonus</static>
+      </stringcontrol>
+	   <stringcontrol>
+        <anchored>
+          <to>kitframe</to>
+          <position>insidetopright</position>
+          <offset>188,17</offset>
+          <size>
+            <width>30</width>
+          </size>
+        </anchored>
+        <center/>
+        <font>sheetlabelsmall</font>
+        <static>Blast</static>
+      </stringcontrol>
+	  <stringcontrol>
+        <anchored>
+          <to>kitframe</to>
+          <position>insidetopright</position>
+          <offset>153,17</offset>
+          <size>
+            <width>30</width>
+          </size>
+        </anchored>
+        <center/>
+        <font>sheetlabelsmall</font>
+        <static>Force</static>
+      </stringcontrol>
+      <stringcontrol>
+        <anchored>
+          <to>kitframe</to>
+          <position>insidetopright</position>
+          <offset>48,5</offset>
+          <size>
+            <width>100</width>
+          </size>
+        </anchored>
+        <center/>
+        <font>sheetlabelsmall</font>
+        <frame>
+          <name>textlinesmall</name>
+          <offset>0,3,0,0</offset>
+        </frame>
+        <static>Range</static>
+      </stringcontrol>
+      <stringcontrol>
+        <anchored>
+          <to>kitframe</to>
+          <position>insidetopright</position>
+          <offset>118,17</offset>
+          <size>
+            <width>30</width>
+          </size>
+        </anchored>
+        <center/>
+        <font>sheetlabelsmall</font>
+        <static>Short</static>
+      </stringcontrol>
+      <stringcontrol>
+        <anchored>
+          <to>kitframe</to>
+          <position>insidetopright</position>
+          <offset>83,17</offset>
+          <size>
+            <width>30</width>
+          </size>
+        </anchored>
+        <center/>
+        <font>sheetlabelsmall</font>
+        <static>Med.</static>
+      </stringcontrol>
+      <stringcontrol>
+        <anchored>
+          <to>kitframe</to>
+          <position>insidetopright</position>
+          <offset>48,17</offset>
+          <size>
+            <width>30</width>
+          </size>
+        </anchored>
+        <center/>
+        <font>sheetlabelsmall</font>
+        <static>Long</static>
+      </stringcontrol>
+      <stringcontrol>
+        <anchored>
+          <to>kitframe</to>
+          <position>insidetopright</position>
+          <offset>13,17</offset>
+          <size>
+            <width>30</width>
+          </size>
+        </anchored>
+        <center/>
+        <font>sheetlabelsmall</font>
+        <static>Dmg.</static>
+      </stringcontrol>
+      <windowlist name="vehicleweapons">
+        <allowcreate/>
+        <allowdelete/>
+        <anchored>
+          <top>
+            <parent>kitframe</parent>
+            <anchor>top</anchor>
+            <offset>26</offset>
+          </top>
+          <left>
+            <parent>kitframe</parent>
+            <anchor>left</anchor>
+            <offset>13</offset>
+          </left>
+          <right>
+            <parent>kitframe</parent>
+            <anchor>right</anchor>
+            <offset>-13</offset>
+          </right>
+          <size>
+            <height>270</height>
+          </size>
+        </anchored>
+        <class>charsheet_vehicleweaponitem</class>
+        <datasource>.vehicleweapons</datasource>
+        <script>
+          function onInit()
+            checkEmpty();
+          end
+          
+          function onListRearranged(changed)
+            if changed then
+              checkEmpty();
+            end
+          end
+          
+          function checkEmpty()
+            if #getWindows()==0 then
+              createWindow();
+            end
+          end
+        </script>
+      </windowlist>
+      <scrollercontrol>
+        <anchored>
+          <to>vehicleweapons</to>
+          <position>insidebottomright</position>
+          <size>
+            <width>45</width>
+            <height>27</height>
+          </size>
+        </anchored>
+        <target>vehicleweapons</target>
+        <button>
+          <normal>button_scroller</normal>
+          <pressed>button_scroller_down</pressed>
+        </button>
+      </scrollercontrol>
+      
+    </sheetdata>
+  </windowclass>
+  
+   <windowclass name="charsheet_vehicleweaponitem">
+    <sizelimits>
+      <minimum>
+        <height>20</height>
+      </minimum>
+      <maximum>
+        <height>20</height>
+      </maximum>
+    </sizelimits>
+    <script>
+      function onDrag(button, x, y, dragdata)
+        dragdata.setType("number");
+        dragdata.setNumberData(damage.getValue());
+        dragdata.setDescription(name.getValue());
+        return true;
+      end
+
+      function onDoubleClick()
+        ModifierStack.addSlot(name.getValue(), damage.getValue());
+        return true;
+      end
+    </script>
+    <sheetdata>
+      <textlistitemvalue name="name">
+        <bounds>0,1,-245,18</bounds>
+        <font>sheettext</font>
+        <frame>
+          <name>textlinesmall</name>
+          <offset>0,-2,0,0</offset>
+        </frame>
+        <script>
+          function onDrag(...)
+            return window.onDrag(...);
+          end
+
+          function onDoubleClick(...)
+            if super and super.onDoubleClick then
+              super.onDoubleClick(...);
+            end
+            return window.onDoubleClick(...);
+          end
+        </script>
+      </textlistitemvalue>
+	   <NumberField name="short" source="bonus">
+        <bounds>-240,5,30,13</bounds>
+        <keyeditframe>
+          <name>shadeline</name>
+          <offset>0,4,0,0</offset>
+        </keyeditframe>
+        <frame>
+          <name>textline</name>
+          <offset>0,4,0,0</offset>
+        </frame>
+        <font>sheetlabel</font>
+        <hideonvalue>0</hideonvalue>
+      </NumberField>
+	   <NumberField name="short" source="blast">
+        <bounds>-205,5,30,13</bounds>
+        <keyeditframe>
+          <name>shadeline</name>
+          <offset>0,4,0,0</offset>
+        </keyeditframe>
+        <frame>
+          <name>textline</name>
+          <offset>0,4,0,0</offset>
+        </frame>
+        <font>sheetlabel</font>
+        <hideonvalue>0</hideonvalue>
+      </NumberField>
+	   <NumberField name="short" source="force">
+        <bounds>-170,5,30,13</bounds>
+        <keyeditframe>
+          <name>shadeline</name>
+          <offset>0,4,0,0</offset>
+        </keyeditframe>
+        <frame>
+          <name>textline</name>
+          <offset>0,4,0,0</offset>
+        </frame>
+        <font>sheetlabel</font>
+        <hideonvalue>0</hideonvalue>
+      </NumberField>
+      <NumberField name="short" source="range.short">
+        <bounds>-135,5,30,13</bounds>
+        <keyeditframe>
+          <name>shadeline</name>
+          <offset>0,4,0,0</offset>
+        </keyeditframe>
+        <frame>
+          <name>textline</name>
+          <offset>0,4,0,0</offset>
+        </frame>
+        <font>sheetlabel</font>
+        <hideonvalue>0</hideonvalue>
+      </NumberField>
+      <NumberField name="medium" source="range.medium">
+        <bounds>-100,5,30,13</bounds>
+        <keyeditframe>
+          <name>shadeline</name>
+          <offset>0,4,0,0</offset>
+        </keyeditframe>
+        <frame>
+          <name>textline</name>
+          <offset>0,4,0,0</offset>
+        </frame>
+        <font>sheetlabel</font>
+        <hideonvalue>0</hideonvalue>
+      </NumberField>
+      <NumberField name="long" source="range.long">
+        <bounds>-65,5,30,13</bounds>
+        <keyeditframe>
+          <name>shadeline</name>
+          <offset>0,4,0,0</offset>
+        </keyeditframe>
+        <frame>
+          <name>textline</name>
+          <offset>0,4,0,0</offset>
+        </frame>
+        <font>sheetlabel</font>
+        <hideonvalue>0</hideonvalue>
+      </NumberField>
+      <NumberField name="damage">
+        <bounds>-30,5,30,13</bounds>
+        <keyeditframe>
+          <name>shadeline</name>
+          <offset>0,4,0,0</offset>
+        </keyeditframe>
+        <frame>
+          <name>textline</name>
+          <offset>0,4,0,0</offset>
+        </frame>
+        <font>sheetlabel</font>
+        <script>
+          function onDrag(...)
+            return window.onDrag(...);
+          end
+
+          function onDoubleClick(...)
+            return window.onDoubleClick(...);
+          end
+        </script>
+      </NumberField>
+    </sheetdata>
+  </windowclass>
+  
+  <windowclass name="charsheet_vehicleitem">
+    <sizelimits>
+      <minimum>
+        <height>20</height>
+      </minimum>
+      <maximum>
+        <height>20</height>
+      </maximum>
+    </sizelimits>
+    <script>
+      function onDrag(button, x, y, dragdata)
+        dragdata.setType("number");
+        dragdata.setNumberData(damage.getValue());
+        dragdata.setDescription(name.getValue());
+        return true;
+      end
+
+      function onDoubleClick()
+        ModifierStack.addSlot(name.getValue(), damage.getValue());
+        return true;
+      end
+    </script>
+    <sheetdata>
+      <textlistitemvalue name="name">
+        <bounds>0,1,-245,18</bounds>
+        <font>sheettext</font>
+        <frame>
+          <name>textlinesmall</name>
+          <offset>0,-2,0,0</offset>
+        </frame>
+        <script>
+          function onDrag(...)
+            return window.onDrag(...);
+          end
+
+          function onDoubleClick(...)
+            if super and super.onDoubleClick then
+              super.onDoubleClick(...);
+            end
+            return window.onDoubleClick(...);
+          end
+        </script>
+      </textlistitemvalue>
+	   <NumberField name="short" source="bonus">
+        <bounds>-240,5,30,13</bounds>
+        <keyeditframe>
+          <name>shadeline</name>
+          <offset>0,4,0,0</offset>
+        </keyeditframe>
+        <frame>
+          <name>textline</name>
+          <offset>0,4,0,0</offset>
+        </frame>
+        <font>sheetlabel</font>
+        <hideonvalue>0</hideonvalue>
+      </NumberField>
+	   <NumberField name="short" source="blast">
+        <bounds>-205,5,30,13</bounds>
+        <keyeditframe>
+          <name>shadeline</name>
+          <offset>0,4,0,0</offset>
+        </keyeditframe>
+        <frame>
+          <name>textline</name>
+          <offset>0,4,0,0</offset>
+        </frame>
+        <font>sheetlabel</font>
+        <hideonvalue>0</hideonvalue>
+      </NumberField>
+	   <NumberField name="short" source="force">
+        <bounds>-170,5,30,13</bounds>
+        <keyeditframe>
+          <name>shadeline</name>
+          <offset>0,4,0,0</offset>
+        </keyeditframe>
+        <frame>
+          <name>textline</name>
+          <offset>0,4,0,0</offset>
+        </frame>
+        <font>sheetlabel</font>
+        <hideonvalue>0</hideonvalue>
+      </NumberField>
+      <NumberField name="short" source="range.short">
+        <bounds>-135,5,30,13</bounds>
+        <keyeditframe>
+          <name>shadeline</name>
+          <offset>0,4,0,0</offset>
+        </keyeditframe>
+        <frame>
+          <name>textline</name>
+          <offset>0,4,0,0</offset>
+        </frame>
+        <font>sheetlabel</font>
+        <hideonvalue>0</hideonvalue>
+      </NumberField>
+      <NumberField name="medium" source="range.medium">
+        <bounds>-100,5,30,13</bounds>
+        <keyeditframe>
+          <name>shadeline</name>
+          <offset>0,4,0,0</offset>
+        </keyeditframe>
+        <frame>
+          <name>textline</name>
+          <offset>0,4,0,0</offset>
+        </frame>
+        <font>sheetlabel</font>
+        <hideonvalue>0</hideonvalue>
+      </NumberField>
+      <NumberField name="long" source="range.long">
+        <bounds>-65,5,30,13</bounds>
+        <keyeditframe>
+          <name>shadeline</name>
+          <offset>0,4,0,0</offset>
+        </keyeditframe>
+        <frame>
+          <name>textline</name>
+          <offset>0,4,0,0</offset>
+        </frame>
+        <font>sheetlabel</font>
+        <hideonvalue>0</hideonvalue>
+      </NumberField>
+      <NumberField name="damage">
+        <bounds>-30,5,30,13</bounds>
+        <keyeditframe>
+          <name>shadeline</name>
+          <offset>0,4,0,0</offset>
+        </keyeditframe>
+        <frame>
+          <name>textline</name>
+          <offset>0,4,0,0</offset>
+        </frame>
+        <font>sheetlabel</font>
+        <script>
+          function onDrag(...)
+            return window.onDrag(...);
+          end
+
+          function onDoubleClick(...)
+            return window.onDoubleClick(...);
+          end
+        </script>
+      </NumberField>
+    </sheetdata>
+  </windowclass>
+  
+</root>
